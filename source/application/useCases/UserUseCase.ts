@@ -1,20 +1,19 @@
-import { User } from "../../domain/entities/User"
-import { UserDTO } from "../DTOs/UserDTO"
-import { UserRepositoryInterface } from "../interfaces/UserRepositoryInterface"
+import { User } from '../../domain/entities/User';
+import { UserRepositoryInterface } from '../interfaces/UserRepositoryInterface';
 
 export default class UserUseCase {
-    userRepositoryInterface: UserRepositoryInterface
-    constructor(userRepositoryInterface: UserRepositoryInterface) {
-        this.userRepositoryInterface = userRepositoryInterface
-    }
+  userRepositoryInterface: UserRepositoryInterface;
+  constructor(userRepositoryInterface: UserRepositoryInterface) {
+    this.userRepositoryInterface = userRepositoryInterface;
+  }
 
-    public async listUsers(): Promise<UserDTO[]> {
-        const users = await this.userRepositoryInterface.getUsers()
-        return users
-    }
+  public async listUsers(): Promise<User[]> {
+    const users = await this.userRepositoryInterface.getUsers();
+    return users;
+  }
 
-    public async createNewUser(name: string, phone: string, password: string): Promise<UserDTO> {
-        const userToCreate = new User({name, phone, password})
-        return await this.userRepositoryInterface.createUser(userToCreate)
-    }
+  public async createNewUser(name: string, phone: string, password: string): Promise<User> {
+    const userToCreate = new User({ name, phone, password });
+    return await this.userRepositoryInterface.createUser(userToCreate);
+  }
 }

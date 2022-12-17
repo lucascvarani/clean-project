@@ -1,7 +1,6 @@
-import { User } from "../../domain/entities/User";
-import { UserDTO } from "../DTOs/UserDTO";
+import { User } from '../../domain/entities/User';
 
 export interface UserRepositoryInterface {
-    getUsers: () => Promise<UserDTO[]>
-    createUser: (user: User) => Promise<UserDTO>
+  getUsers: () => Promise<User[]>;
+  createUser: (user: User) => Promise<User>;
 }

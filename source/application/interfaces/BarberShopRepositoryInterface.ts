@@ -1,4 +1,4 @@
-import { BarberShop } from "../../domain/entities/BarberShop";
+import { BarberShop } from '../../domain/entities/BarberShop';
 export interface BarberShopRepositoryInterface {
-    createBarberShop: (barber: BarberShop) => Promise<BarberShop>
+  createBarberShop: (barber: BarberShop) => Promise<BarberShop>;
 }
