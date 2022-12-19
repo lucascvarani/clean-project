@@ -7,7 +7,6 @@ const clientUseCase = new ClientUseCase(clientRepository);
 
 export class ClientController {
   public async getClients(req: Request, res: Response, next: NextFunction): Promise<Response | undefined> {
-    console.log(req.query);
     const barberShopId = String(req.query.barberShopId);
     const clients = await clientUseCase.listClients(barberShopId);
     return res.status(200).json({

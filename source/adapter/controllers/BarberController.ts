@@ -9,7 +9,6 @@ const barberUseCase = new BarberUseCase(barberRepository);
 
 export class BarberController {
   public async getBarbers(req: Request, res: Response, next: NextFunction): Promise<Response | undefined> {
-    console.log(req.query);
     const barberShopId = String(req.query.barberShopId);
     const barbers = await barberUseCase.listBarbers(barberShopId);
     return res.status(200).json({
